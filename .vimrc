@@ -693,3 +693,6 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+" Ctrlp
+let g:ctrlp_map = '<Leader>]'
