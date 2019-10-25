@@ -48,6 +48,15 @@ Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'ludovicchabant/vim-gutentags'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -696,3 +705,16 @@ endif
 
 " Ctrlp
 let g:ctrlp_map = '<Leader>]'
+nnoremap <Leader>[ :CtrlPTag<CR>
+
+" Setup ctag locations
+set tags+=.git/tags;
+
+" gutentags
+let g:gutentags_ctags_tagfile = "./.git/tags"
+let g:gutentags_ctags_exclude = ['tmp/*', 'log/*', '*.sql', 'env/*']
+let g:gutentags_ctags_auto_set_tags = 0
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let deoplete#tag#cache_limit_size = 50000000
