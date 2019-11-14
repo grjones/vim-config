@@ -49,6 +49,7 @@ Plug 'ervandew/supertab'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'dyng/ctrlsf.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -718,3 +719,9 @@ let g:gutentags_ctags_auto_set_tags = 0
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let deoplete#tag#cache_limit_size = 50000000
+
+" ctrlsf
+nmap <Leader>f <Plug>CtrlSFPrompt
+nmap <Leader>' <Plug>CtrlSFCwordPath<CR>
+nmap <Leader>; <Plug>CtrlSFCCwordPath<CR>
+
